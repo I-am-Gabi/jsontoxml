@@ -40,6 +40,7 @@ def convert():
 
     f = open('xml-output.xml', 'w')
     f.write("<?xml version='1.0' encoding='UTF-8'?>\n")
+    f.write("<?xml-stylesheet href='xml-output.css' type='text/css'?>\n")
     f.write("<!DOCTYPE island-data SYSTEM 'xml-output.dtd'>\n")
     converted = json_to_xml(json_data)
     f.write("<island-data>\n %s \n </island-data>" % converted)
