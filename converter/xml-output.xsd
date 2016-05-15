@@ -1,0 +1,28 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="island-data">
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element type="xs:string" name="meth"/>
+        <xs:element type="xs:string" name="part"/>
+        <xs:element name="data">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="contracts">
+                <xs:complexType>
+                  <xs:choice maxOccurs="unbounded" minOccurs="0">
+                    <xs:element type="xs:float" name="amount"/>
+                    <xs:element type="xs:string" name="resource"/>
+                  </xs:choice>
+                </xs:complexType>
+              </xs:element>
+              <xs:element type="xs:float" name="men"/>
+              <xs:element type="xs:string" name="heading"/>
+              <xs:element type="xs:float" name="budget"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element type="xs:string" name="time"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
