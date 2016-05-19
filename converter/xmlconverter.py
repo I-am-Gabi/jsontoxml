@@ -1,11 +1,13 @@
 import json
+from lxml import etree
+from dataanalyzer import DataAnalyzer
 
 
 def json_to_xml(json_obj, line_padding=""):
     """
     Method to convert the json object to xml using the tag xml.
-    :param json_obj:
-    :param line_padding:
+    :param json_obj: json object
+    :param line_padding: line padding
     :return: the line_padding and the object xml
     """
     result_list = list()
@@ -31,19 +33,53 @@ def json_to_xml(json_obj, line_padding=""):
     return "%s%s" % (line_padding, json_obj)
 
 
-def convert():
+def header(f):
     """
-    Method to open the input file and load the converter.
+    Method to set the header file.
+    :param f: file object
     """
-    with open("json-input.json") as json_file:
-        json_data = json.load(json_file)
-
-    f = open('xml-output.xml', 'w')
     f.write("<?xml version='1.0' encoding='UTF-8'?>\n")
     f.write("<?xml-stylesheet href='xml-output.css' type='text/css'?>\n")
-    f.write("<!DOCTYPE island-data SYSTEM 'xml-output.dtd'>\n")
-    converted = json_to_xml(json_data)
-    f.write("<island-data>\n %s \n </island-data>" % converted)
+    f.write("<!DOCTYPE island-trace SYSTEM 'xml-output.dtd'>\n")
+
+
+def validate(xml_file):
+    parser = etree.XMLParser(dtd_validation=True)
+    tree = etree.parse("xml/xml-output.xml", parser)
+    print tree
+
+
+def convert():
+    """
+    Method to open the input file json and convert to xml.
+    """
+
+    # open the json file
+    with open("json/json-input-little.json") as json_file:
+        json_data = json.load(json_file)
+
+    # open the xml file
+    f = open('xml/xml-output.xml', 'w')
+
+    # set the header file
+    header(f)
+
+    # call method to convert json file
+    xml_file = json_to_xml(json_data)
+
+    # set element root
+    f.write("<island-trace>\n %s \n </island-trace>" % xml_file)
+
+    # TODO: validate the dtd and xml
+    # validate(xml_file)
+
+    # analyzer
+    analyzer()
+
+
+def analyzer():
+    a = DataAnalyzer('xml/xml-analyzer.xml')
+    print "Total Cost : {0}".format(a.cost())
 
 
 if __name__ == "__main__":

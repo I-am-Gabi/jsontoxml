@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <?xml-stylesheet href='xml-output.css' type='text/css'?>
-<!DOCTYPE island-data SYSTEM 'xml-output.dtd'>
-<island-data>
+<!DOCTYPE island-trace SYSTEM 'xml-output.dtd'>
+<island-trace>
  	<meth>
 		initialize
 	</meth>
@@ -76,4 +76,4 @@
 	<time>
 		1448181488659
 	</time> 
- </island-data>
+ </island-trace>
