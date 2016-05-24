@@ -26,6 +26,20 @@
 # Mongo Explorer plugin:
 .idea/mongoSettings.xml
 
+#
+.idea/.name
+.idea/misc.xml
+.idea/modules.xml
+.idea/xmlanalyzer.iml
+.idea/compiler.xml
+.idea/copyright/
+jsontoxml.iml
+
+# files pyc
+*.pyc
+converter/*.pyc
+converter/analyzer/*.pyc
+
 ## File-based project format:
 *.iws
 
