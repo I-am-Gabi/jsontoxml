@@ -47,4 +47,4 @@ def analyzer():
     print "Total Action : {0}".format(a.action())
     print "Percentage Action : {0}".format(a.percentage_action())
     run(a.doc.getElementsByTagName("data"))
-    analyzer_resource(a.doc)
+    analyzer_resource(xml_path)
