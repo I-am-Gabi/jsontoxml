@@ -1,5 +1,7 @@
 from statistics import mean, median, mode, variance
 
+from converter.analyzer.plot.plot_costs import plot_cost_action
+
 
 def total_cost(data):
     total = 0
@@ -85,3 +87,5 @@ def run(data):
 
     key_max, max_value = max_action_percentage(cost_action, total)
     print "More Expensive Action by percentage: {0} -> {1} %".format(key_max, round(max_value, 2))
+
+    plot_cost_action(cost_action)
