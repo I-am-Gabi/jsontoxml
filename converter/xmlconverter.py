@@ -43,7 +43,7 @@ def header(f):
     f.write("<!DOCTYPE island-trace SYSTEM 'xml-output.dtd'>\n")
 
 
-def validate(xml_file):
+def validate():
     parser = etree.XMLParser(dtd_validation=True)
     tree = etree.parse("xml/xml-output.xml", parser)
     print tree
@@ -71,14 +71,14 @@ def convert():
     f.write("<island-trace>\n %s \n </island-trace>" % xml_file)
 
     # TODO: validate the dtd and xml
-    # validate(xml_file)
+    validate()
 
     # analyzer
     analyzer()
 
 
 def analyzer():
-    a = DataAnalyzer('xml/xml-analyzer.xml')
+    a = DataAnalyzer('xml/xml-output.xml')
     print "Total Cost : {0}".format(a.cost())
 
 
