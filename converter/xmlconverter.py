@@ -70,6 +70,9 @@ def convert():
     # set element root
     f.write("<island-trace>\n %s \n </island-trace>" % xml_file)
 
+    # Close file
+    f.close()
+
     # TODO: validate the dtd and xml
     validate()
 
