@@ -9,7 +9,7 @@ def plot_cost_action(cost_action):
         costs.append(v)
     x = range(0, len(actions))
     plt.xticks(x, actions)
-    plt.bar(x, costs)
+    plt.bar(x, costs, align='center')
     plt.title("action x cost", fontsize=15)
     plt.xlabel("success")
     plt.ylabel("probability")
