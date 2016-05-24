@@ -83,6 +83,7 @@ def convert():
 def analyzer():
     a = DataAnalyzer('xml/xml-output.xml')
     print "Total Cost : {0}".format(a.cost())
+    print "Number of required resources in the contract : {0} ". format(a.resources())
 
 
 if __name__ == "__main__":
