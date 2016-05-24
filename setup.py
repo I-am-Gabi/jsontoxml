@@ -10,7 +10,7 @@ config = {
     'download_url': 'https://github.com/I-am-Gabi/jsontoxml',
     'author_email': '',
     'version': '0.1',
-    'install_requires': ['nose'],
+    'install_requires': ['nose', 'matplotlib'],
     'packages': find_packages(),
     'scripts': [],
     'name': 'xmlanalyzer'

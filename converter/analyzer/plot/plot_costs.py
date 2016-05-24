@@ -14,3 +14,4 @@ def plot_cost_action(cost_action):
     plt.xlabel("success")
     plt.ylabel("probability")
     plt.show()
+

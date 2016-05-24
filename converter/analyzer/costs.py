@@ -31,6 +31,7 @@ def action(data):
             act = nodes[1].childNodes[0].data.strip()
             take_cost = True
         if take_cost and len(nodes) > 3 and nodes[3].localName == 'cost':
+            take_cost = False
             cost = int(nodes[3].childNodes[0].data)
             if act in actions:
                 c = int(actions.get(act)) + cost

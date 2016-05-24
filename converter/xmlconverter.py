@@ -5,7 +5,7 @@ from lxml import etree
 from converter.analyzer.dataanalyzer import DataAnalyzer
 
 xml_path = 'xml/xml-output.xml'
-json_path = 'json/json-input.json'
+json_path = 'json/json-raquel.json'
 
 
 def json_to_xml(json_obj, line_padding=""):

@@ -4,7 +4,7 @@
 <!ELEMENT time (#PCDATA)>
 
 <!ELEMENT data (contracts*, men*, heading*, budget*, action*, status*, cost*, extras*, parameters*)>
-<!ELEMENT parameters (direction*, creek*, people*)>
+<!ELEMENT parameters (direction*, creek*, people*, resource*, amount*)>
 <!ELEMENT direction (#PCDATA)>
 <!ELEMENT creek (#PCDATA)>
 <!ELEMENT people (#PCDATA)>
@@ -18,7 +18,9 @@
 <!ELEMENT status (#PCDATA)>
 <!ELEMENT cost (#PCDATA)>
 
-<!ELEMENT extras (found*, range*, biomes*, creeks*)>
+<!ELEMENT extras (found*, range*, biomes*, creeks*, altitude*, resources*, amount*)>
+<!ELEMENT altitude (#PCDATA)>
+<!ELEMENT resources (#PCDATA)>
 <!ELEMENT found (#PCDATA)>
 <!ELEMENT range (#PCDATA)>
 <!ELEMENT biomes (#PCDATA)>
