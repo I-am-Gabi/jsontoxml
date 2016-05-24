@@ -18,9 +18,21 @@ class DataAnalyzer:
         """
         :return: number of resources
         """
-        total_cost = 0
         data = self.doc.getElementsByTagName("data")
-        data = data[0].childNodes # First data = contract + men + heading + budget
-        contract = data[0]  # contract
+        data = data[0].childNodes  # First data = contract + men + heading + budget
+        contract = data[1]  # contract
+        resources = contract.childNodes  # List of amount+ resources
+        count = 0
+        # delete items related to tabulation
+        for res in resources:
+            if res.data == "\n\t\t\t":
+                del resources[count]
+            count += 1
+        return resources
 
-        return len(contract)
+    def nb_resources(self):
+        """
+        :return: number of resources
+        """
+        res = self.resources()
+        return len(res)/2  # 2 because its amount+resource

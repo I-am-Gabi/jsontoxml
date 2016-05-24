@@ -28,6 +28,12 @@
 			<resource>
 				WOOD
 			</resource>
+			<amount>
+				200
+			</amount>
+			<resource>
+				A
+			</resource>
 		</contracts>
 		<men>
 			15
