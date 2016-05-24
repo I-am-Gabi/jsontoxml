@@ -2,6 +2,9 @@ import json
 from lxml import etree
 from dataanalyzer import DataAnalyzer
 
+xml_path = 'xml/xml-output.xml'
+json_path = 'json/json-input.json'
+
 
 def json_to_xml(json_obj, line_padding=""):
     """
@@ -45,8 +48,7 @@ def header(f):
 
 def validate():
     parser = etree.XMLParser(dtd_validation=True)
-    tree = etree.parse("xml/xml-output.xml", parser)
-    print tree
+    etree.parse(xml_path, parser)
 
 
 def convert():
@@ -55,11 +57,11 @@ def convert():
     """
 
     # open the json file
-    with open("json/json-input-little.json") as json_file:
+    with open(json_path) as json_file:
         json_data = json.load(json_file)
 
     # open the xml file
-    f = open('xml/xml-output.xml', 'w')
+    f = open(xml_path, 'w')
 
     # set the header file
     header(f)
@@ -72,17 +74,6 @@ def convert():
 
     # Close file
     f.close()
-
-    # TODO: validate the dtd and xml
-    validate()
-
-    # analyzer
-    analyzer()
-
-
-def analyzer():
-    a = DataAnalyzer('xml/xml-output.xml')
-    print "Total Cost : {0}".format(a.cost())
 
 
 if __name__ == "__main__":

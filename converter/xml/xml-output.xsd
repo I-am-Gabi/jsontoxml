@@ -10,12 +10,12 @@
               <xs:element name="contracts">
                 <xs:complexType>
                   <xs:choice maxOccurs="unbounded" minOccurs="0">
-                    <xs:element type="xs:float" name="amount"/>
+                    <xs:element type="xs:integer" name="amount"/>
                     <xs:element type="xs:string" name="resource"/>
                   </xs:choice>
                 </xs:complexType>
               </xs:element>
-              <xs:element type="xs:float" name="men"/>
+              <xs:element type="xs:integer" name="men"/>
               <xs:element type="xs:string" name="heading"/>
               <xs:element type="xs:float" name="budget"/>
             </xs:sequence>
