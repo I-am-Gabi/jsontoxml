@@ -14,6 +14,10 @@
       {
         "amount": 1000,
         "resource": "WOOD"
+      },
+      {
+        "amount": 200,
+        "resource": "A"
       }
     ],
     "budget": 7000
