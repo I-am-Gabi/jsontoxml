@@ -36,30 +36,6 @@ class DataAnalyzer:
             data.update({k: percentage(total, v)})
         return data
 
-    def resources(self):
-        """
-        :return: number of resources
-        """
-        data = self.doc.getElementsByTagName("data")
-        data = data[0].childNodes  # First data = contract + men + heading + budget
-        contract = data[1]  # contract
-        resources = contract.childNodes  # List of amount+ resources
-        count = 0
-        # delete items related to tabulation
-        for res in resources:
-            if res.data == "\n\t\t\t":
-                del resources[count]
-            count += 1
-        return resources
-
-    def nb_resources(self):
-        """
-        :return: number of resources
-        """
-        res = self.resources()
-        return len(res) / 2  # 2 because its amount+resource
-
-
 def percentage(total, partial):
     return round((partial * 100.) / total, 2)
 
@@ -68,5 +44,4 @@ def analyzer():
     a = DataAnalyzer(xml_path)
     print "Total Action : {0}".format(a.action())
     print "Percentage Action : {0}".format(a.percentage_action())
-    print "Number of required resources in the contract : {0}".format(a.nb_resources())
     run(a.doc.getElementsByTagName("data"))
