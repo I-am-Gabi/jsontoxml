@@ -1,5 +1,6 @@
 from xml.dom import minidom
 from costs import run
+from resources import analyzer_resource
 
 xml_path = 'xml/xml-output.xml'
 
@@ -36,6 +37,7 @@ class DataAnalyzer:
             data.update({k: percentage(total, v)})
         return data
 
+
 def percentage(total, partial):
     return round((partial * 100.) / total, 2)
 
@@ -45,3 +47,4 @@ def analyzer():
     print "Total Action : {0}".format(a.action())
     print "Percentage Action : {0}".format(a.percentage_action())
     run(a.doc.getElementsByTagName("data"))
+    analyzer_resource(a.doc)
