@@ -1,4 +1,4 @@
-from converter.dataanalyzer import analyzer
+from converter.analyzer.dataanalyzer import analyzer
 from converter.xmlconverter import convert, validate
 
 

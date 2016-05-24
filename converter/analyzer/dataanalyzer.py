@@ -1,4 +1,5 @@
 from xml.dom import minidom
+from costs import run
 
 xml_path = 'xml/xml-output.xml'
 
@@ -6,15 +7,6 @@ xml_path = 'xml/xml-output.xml'
 class DataAnalyzer:
     def __init__(self, source):
         self.doc = minidom.parse(source)
-
-    def cost(self):
-        total_cost = 0
-        for data in self.doc.getElementsByTagName("data"):
-            nodes = data.childNodes
-            if len(nodes) > 3 and nodes[3].localName == 'cost':
-                total_cost += int(nodes[3].childNodes[0].data)
-
-        return total_cost
 
     def action(self):
         actions = {}
@@ -74,6 +66,7 @@ def percentage(total, partial):
 
 def analyzer():
     a = DataAnalyzer(xml_path)
-    print "Total Cost : {0}".format(a.cost())
     print "Total Action : {0}".format(a.action())
     print "Percentage Action : {0}".format(a.percentage_action())
+    print "Number of required resources in the contract : {0}".format(a.nb_resources())
+    run(a.doc.getElementsByTagName("data"))
