@@ -46,6 +46,9 @@ def nb_resources(data_xml):
 
 
 def analyzer_resource(data_xml):
-    print "Number of required resources in the contract : {0}".format(nb_resources(data_xml))
+    f = open("analyzer.log", 'a+')
+    f.write("Number of required resources in the contract : {0}".format(nb_resources(data_xml)))
     print_resources(data_xml)
+    f.close()
+
 
