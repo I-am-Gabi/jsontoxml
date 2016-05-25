@@ -1,6 +1,7 @@
 from xml.dom import minidom
 from itertools import izip  # to transform list to a dict
 
+output = "analyzer.log"
 
 def delete_tab(list):
     count = 0
@@ -34,8 +35,11 @@ def resources(data_xml):
 def print_resources(data_xml):
     res = resources(data_xml)
 
+    f = open(output, 'a+')
     for r in res:
-        print (r + " : " + res[r])
+        #  print (r + " : " + res[r])
+        f.write(r + " : " + res[r] + "\n")
+    f.close()
 
 
 def nb_resources(data_xml):
@@ -76,10 +80,12 @@ def resource_take(data_xml):
     # update data to action of type and 'transform'"""
 
 def analyzer_resource(data_xml):
-    f = open("analyzer.log", 'a+')
+    f = open(output, 'a+')
     f.write("############# RESOURCES #############\n\n")
-
     f.write("Number of required resources in the contract : {0}".format(nb_resources(data_xml)))
+    f.close()
+
+    f = open(output, 'a+')
     print_resources(data_xml)
     print resource_take(data_xml)
     f.close()
