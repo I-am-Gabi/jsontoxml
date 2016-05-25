@@ -51,3 +51,21 @@ Percentage Cost by Action:
 	echo -> 2.48 %
 More Expensive Action by value: move_to -> 4737
 More Expensive Action by percentage: move_to -> 29.53 %
+
+############# BIOMES #############
+	 TROPICAL_SEASONAL_FOREST -> 21
+	 MANGROVE -> 6
+	 TROPICAL_RAIN_FOREST -> 25
+	 BEACH -> 53
+	 LAKE -> 10
+	 SHRUBLAND -> 181
+	 OCEAN -> 79
+
+Percentage biomes: 
+	 TROPICAL_SEASONAL_FOREST -> 6.8 %
+	 MANGROVE -> 1.94 %
+	 TROPICAL_RAIN_FOREST -> 8.09 %
+	 BEACH -> 17.15 %
+	 LAKE -> 3.24 %
+	 SHRUBLAND -> 58.58 %
+	 OCEAN -> 25.57 %
