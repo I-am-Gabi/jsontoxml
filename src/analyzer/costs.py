@@ -21,6 +21,22 @@ def costs(data):
     return list_cost
 
 
+def costs_action(data, action):
+    total = []
+    take_cost = False
+    for d in data:
+        nodes = d.childNodes
+        if len(nodes) > 1 and nodes[1].localName == 'action':
+            act = nodes[1].childNodes[0].data.strip()
+            if act == action:
+                take_cost = True
+        if take_cost and len(nodes) > 3 and nodes[3].localName == 'cost':
+            take_cost = False
+            cost = int(nodes[3].childNodes[0].data)
+            total.append(cost)
+    return total
+
+
 def action(data):
     actions = {}
     act = ""
@@ -74,11 +90,19 @@ def run(data):
     cost_action = action(data)
     f.write("Cost by Action: \n")
     for k, v in cost_action.iteritems():
-        f.write("\t{0} -> {1}\n".format(k, v))
+        f.write("\t{0} -> {1} units\n".format(k, v))
 
     f.write("Percentage Cost by Action: \n")
     for k, v in cost_action.iteritems():
         f.write("\t{0} -> {1} %\n".format(k, round(((v * 100.) / total), 2)))
+
+    f.write("Cost Variance by Action: \n")
+    for k, v in cost_action.iteritems():
+        c_action = costs_action(data, k)
+        if len(c_action) > 1:
+            f.write("\t{0} -> {1} units\n".format(k, round(variance(c_action), 2)))
+        else:
+            f.write("\t{0} -> {1} units\n".format(k, round(c_action[0], 2)))
 
     key_max, max_value = max_action_value(cost_action)
     f.write("More Expensive Action by value: {0} -> {1}\n".format(key_max[0], cost_action.get(key_max[0])))

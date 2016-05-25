@@ -41,5 +41,5 @@ def run(doc):
         f.write("\t{0} -> {1}\n".format(k, v))
     f.write("Percentage Action: \n")
     for k, v in percentage_action(doc).iteritems():
-        f.write("\t{0} -> {1}\n".format(k, v))
+        f.write("\t{0} -> {1} %\n".format(k, v))
     f.close()

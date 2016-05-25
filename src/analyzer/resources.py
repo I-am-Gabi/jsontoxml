@@ -77,7 +77,7 @@ def resource_take(data_xml):
 
 def analyzer_resource(data_xml):
     f = open("analyzer.log", 'a+')
-    f.write("############# RESOURCES #############\n\n")
+    f.write("\n############# RESOURCES #############\n\n")
 
     f.write("Number of required resources in the contract : {0}".format(nb_resources(data_xml)))
     print_resources(data_xml)

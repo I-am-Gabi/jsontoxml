@@ -1,5 +1,5 @@
 def biomes(data):
-    allbiomes = {}
+    all_biomes = {}
     find = False
     total_biomes = 0
     for d in data:
@@ -15,14 +15,14 @@ def biomes(data):
             list_b = b_node[0].data.split('\n\t\t\t\t')
             for b in list_b:
                 biome = b.strip()
-                if biome in allbiomes:
-                    c = int(allbiomes.get(biome)) + 1
+                if biome in all_biomes:
+                    c = int(all_biomes.get(biome)) + 1
                     item = {biome: c}
-                    allbiomes.update(item)
+                    all_biomes.update(item)
                 elif biome != '':
                     item = {biome: 1}
-                    allbiomes.update(item)
-    return allbiomes, total_biomes
+                    all_biomes.update(item)
+    return all_biomes, total_biomes
 
 
 def percentage(b, f, total):
@@ -35,6 +35,8 @@ def run(data):
     f = open("analyzer.log", 'a+')
     f.write("\n############# BIOMES #############\n")
     b, total = biomes(data)
+
+    f.write("Number of Scans and Biomes found: \n")
     for k, v in b.iteritems():
         f.write("\t {0} -> {1}\n".format(k, str(v)))
     percentage(b, f, total)
