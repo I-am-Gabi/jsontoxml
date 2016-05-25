@@ -78,16 +78,15 @@ def resource_take(data_xml):
                 print "okkk"
         count +=1
     # update data to action of type and 'transform'"""
+    return 1
 
 def analyzer_resource(data_xml):
     f = open(output, 'a+')
     f.write("############# RESOURCES #############\n\n")
-    f.write("Number of required resources in the contract : {0}".format(nb_resources(data_xml)))
+    f.write("Number of required resources in the contract : {0}\n".format(nb_resources(data_xml)))
     f.close()
 
     f = open(output, 'a+')
     print_resources(data_xml)
-    print resource_take(data_xml)
+    resource_take(data_xml)
     f.close()
-
-

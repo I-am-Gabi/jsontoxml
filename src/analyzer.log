@@ -1,4 +1,11 @@
-############# ANALYZER #############
+
+ ______     __   __     ______     __         __  __     ______     ______     ______       
+/\  __ \   /\ `-.\ \   /\  __ \   /\ \       /\ \_\ \   /\___  \   /\  ___\   /\  == \      
+\ \  __ \  \ \ \-.  \  \ \  __ \  \ \ \____  \ \____ \  \/_/  /__  \ \  __\   \ \  __<      
+ \ \_\ \_\  \ \_\ `\_\  \ \_\ \_\  \ \_____\  \/\_____\   /\_____\  \ \_____\  \ \_\ \_\   
+  \/_/\/_/   \/_/ \/_/   \/_/\/_/   \/_____/   \/_____/   \/_____/   \/_____/   \/_/ /_/    
+
+
 
 
 ############# ACTION #############
@@ -13,15 +20,15 @@ Total Action:
 	move_to -> 1107
 	echo -> 79
 Percentage Action: 
-	fly -> 26.52
-	exploit -> 6.78
-	scout -> 17.2
-	scan -> 9.93
-	echo -> 2.54
-	stop -> 0.03
-	heading -> 1.38
-	move_to -> 35.58
-	land -> 0.03
+	fly -> 26.52 %
+	exploit -> 6.78 %
+	scout -> 17.2 %
+	scan -> 9.93 %
+	echo -> 2.54 %
+	stop -> 0.03 %
+	heading -> 1.38 %
+	move_to -> 35.58 %
+	land -> 0.03 %
 
 ############# COST #############
 Total Cost : 16042
@@ -30,15 +37,15 @@ Total Cost Median: 5
 Total Cost Mode: 5
 Total Cost Variance: 6.85940976992
 Cost by Action: 
-	fly -> 3325
-	scout -> 3043
-	land -> 12
-	scan -> 1528
-	exploit -> 2754
-	stop -> 26
-	heading -> 219
-	move_to -> 4737
-	echo -> 398
+	fly -> 3325 units
+	scout -> 3043 units
+	land -> 12 units
+	scan -> 1528 units
+	exploit -> 2754 units
+	stop -> 26 units
+	heading -> 219 units
+	move_to -> 4737 units
+	echo -> 398 units
 Percentage Cost by Action: 
 	fly -> 20.73 %
 	scout -> 18.97 %
@@ -49,10 +56,21 @@ Percentage Cost by Action:
 	heading -> 1.37 %
 	move_to -> 29.53 %
 	echo -> 2.48 %
+Cost Variance by Action: 
+	fly -> 1.42 units
+	scout -> 1.73 units
+	land -> 12.0 units
+	scan -> 1.47 units
+	exploit -> 5.7 units
+	stop -> 26.0 units
+	heading -> 1.66 units
+	move_to -> 1.53 units
+	echo -> 1.6 units
 More Expensive Action by value: move_to -> 4737
 More Expensive Action by percentage: move_to -> 29.53 %
 
 ############# BIOMES #############
+Number of Scans and Biomes found: 
 	 TROPICAL_SEASONAL_FOREST -> 21
 	 MANGROVE -> 6
 	 TROPICAL_RAIN_FOREST -> 25
@@ -72,3 +90,8 @@ Percentage biomes:
 ############# RESOURCES #############
 
 Number of required resources in the contract : 5
+LEATHER : 1000
+INGOT : 3
+WOOD : 5000
+FUR : 400
+FLOWER : 1
