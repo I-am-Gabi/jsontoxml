@@ -64,15 +64,11 @@ def run(data):
     f = open("analyzer.log", 'a+')
     c = costs(data)
     total = total_cost(data)
-
+    f.write("\n############# COST #############\n")
     f.write("Total Cost : {0}\n".format(total))
-
     f.write("Total Cost Mean: {0}\n".format(mean(c)))
-
     f.write("Total Cost Median: {0}\n".format(median(c)))
-
     f.write("Total Cost Mode: {0}\n".format(mode(c)))
-
     f.write("Total Cost Variance: {0}\n".format(variance(c)))
 
     cost_action = action(data)

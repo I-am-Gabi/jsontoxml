@@ -1,3 +1,7 @@
+############# ANALYZER #############
+
+
+############# ACTION #############
 Total Action: 
 	fly -> 825
 	scout -> 535
@@ -18,6 +22,8 @@ Percentage Action:
 	heading -> 1.38
 	move_to -> 35.58
 	land -> 0.03
+
+############# COST #############
 Total Cost : 16042
 Total Cost Mean: 5.15654130505
 Total Cost Median: 5

@@ -35,6 +35,7 @@ def percentage(total, partial):
 
 def run(doc):
     f = open("analyzer.log", 'a+')
+    f.write("\n############# ACTION #############\n")
     f.write("Total Action: \n")
     for k, v in action(doc).iteritems():
         f.write("\t{0} -> {1}\n".format(k, v))
