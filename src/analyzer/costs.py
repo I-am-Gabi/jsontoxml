@@ -1,6 +1,6 @@
 from statistics import mean, median, mode, variance
 
-from converter.analyzer.plot.plot_costs import plot_cost_action
+from src.analyzer.plot.plot_costs import plot_cost_action
 
 
 def total_cost(data):
@@ -61,32 +61,35 @@ def max_action_percentage(cost_action, total):
 
 
 def run(data):
+    f = open("analyzer.log", 'a+')
     c = costs(data)
     total = total_cost(data)
 
-    print "Total Cost : {0}".format(total)
+    f.write("Total Cost : {0}\n".format(total))
 
-    print "Total Cost Mean: {0}".format(mean(c))
+    f.write("Total Cost Mean: {0}\n".format(mean(c)))
 
-    print "Total Cost Median: {0}".format(median(c))
+    f.write("Total Cost Median: {0}\n".format(median(c)))
 
-    print "Total Cost Mode: {0}".format(mode(c))
+    f.write("Total Cost Mode: {0}\n".format(mode(c)))
 
-    print "Total Cost Variance: {0}".format(variance(c))
+    f.write("Total Cost Variance: {0}\n".format(variance(c)))
 
     cost_action = action(data)
-    print "Cost by Action: "
+    f.write("Cost by Action: \n")
     for k, v in cost_action.iteritems():
-        print "\t{0} -> {1}".format(k, v)
+        f.write("\t{0} -> {1}\n".format(k, v))
 
-    print "Percentage Cost by Action: "
+    f.write("Percentage Cost by Action: \n")
     for k, v in cost_action.iteritems():
-        print "\t{0} -> {1} %".format(k, round(((v * 100.) / total), 2))
+        f.write("\t{0} -> {1} %\n".format(k, round(((v * 100.) / total), 2)))
 
     key_max, max_value = max_action_value(cost_action)
-    print "More Expensive Action by value: {0} -> {1}".format(key_max[0], cost_action.get(key_max[0]))
+    f.write("More Expensive Action by value: {0} -> {1}\n".format(key_max[0], cost_action.get(key_max[0])))
 
     key_max, max_value = max_action_percentage(cost_action, total)
-    print "More Expensive Action by percentage: {0} -> {1} %".format(key_max, round(max_value, 2))
+    f.write("More Expensive Action by percentage: {0} -> {1} %\n".format(key_max, round(max_value, 2)))
 
-    plot_cost_action(cost_action)
+    f.close()
+
+    # plot_cost_action(cost_action)

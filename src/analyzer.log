@@ -1,0 +1,47 @@
+Total Action: 
+	fly -> 825
+	scout -> 535
+	land -> 1
+	scan -> 309
+	exploit -> 211
+	stop -> 1
+	heading -> 43
+	move_to -> 1107
+	echo -> 79
+Percentage Action: 
+	fly -> 26.52
+	exploit -> 6.78
+	scout -> 17.2
+	scan -> 9.93
+	echo -> 2.54
+	stop -> 0.03
+	heading -> 1.38
+	move_to -> 35.58
+	land -> 0.03
+Total Cost : 16042
+Total Cost Mean: 5.15654130505
+Total Cost Median: 5
+Total Cost Mode: 5
+Total Cost Variance: 6.85940976992
+Cost by Action: 
+	fly -> 3325
+	scout -> 3043
+	land -> 12
+	scan -> 1528
+	exploit -> 2754
+	stop -> 26
+	heading -> 219
+	move_to -> 4737
+	echo -> 398
+Percentage Cost by Action: 
+	fly -> 20.73 %
+	scout -> 18.97 %
+	land -> 0.07 %
+	scan -> 9.52 %
+	exploit -> 17.17 %
+	stop -> 0.16 %
+	heading -> 1.37 %
+	move_to -> 29.53 %
+	echo -> 2.48 %
+More Expensive Action by value: move_to -> 4737
+More Expensive Action by percentage: move_to -> 29.53 %

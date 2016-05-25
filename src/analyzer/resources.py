@@ -5,6 +5,7 @@ xml_path = 'xml/xml-output.xml'
 
 def resources(data_xml):
     """
+    :param data_xml: object xml
     :return: dic of resources and amount
     """
     data = minidom.parse(data_xml).getElementsByTagName("data")
@@ -37,6 +38,7 @@ def print_resources(data_xml):
 
 def nb_resources(data_xml):
     """
+    :param data_xml:
     :return: number of resources
     """
     res = resources(data_xml)

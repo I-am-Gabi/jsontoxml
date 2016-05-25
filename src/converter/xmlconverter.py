@@ -2,7 +2,6 @@ import json
 
 from lxml import etree
 
-from converter.analyzer.dataanalyzer import DataAnalyzer
 
 xml_path = 'xml/xml-output.xml'
 json_path = 'json/json-raquel.json'

@@ -46,3 +46,7 @@ Use the command line to compile:
 
 * Repo owner or admin
 * Other community or team contact
+
+### Requeriments ###
+
+    pip install -r requirements.txt

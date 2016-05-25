@@ -1,5 +1,5 @@
 from nose.tools import *
-import converter
+import src
 
 
 def setup():
