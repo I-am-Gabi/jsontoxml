@@ -86,21 +86,31 @@ def resource_take(data_xml):
         count +=1
     # update data to action of type and 'transform'
 
-"""def percentage_resouces(resources_asked, resources_caught):
+    return res
+
+
+def percentage_resouces(resources_asked, resources_caught):
     res = resources_asked
-   keys = res.keys()
+    keys = res.keys()
     for r in keys:
         if r in resources_caught:
-            res[r] = int(resources_caught[r])/float(resources_asked[r])"""
+            res[r] = int(resources_caught[r])/float(resources_asked[r])
+            if res[r] >= 1:
+                res[r] = 100
+            else:
+                res[r] = float(res[r])*100
+        else :
+            res[r] = 0
+    return res
 
 
 def analyzer_resource(data_xml):
     f = open(output, 'a+')
     f.write("############# RESOURCES #############\n\n")
     f.write("Number of required resources in the contract : {0}\n".format(nb_resources(data_xml)))
-    f.close()
-
-    f = open(output, 'a+')
-    print_resources(data_xml)
-    resource_take(data_xml)
+    f.write("Percentage of each resources: (available/caught) \n")
+    res =  percentage_resouces(resources(data_xml), resource_take(data_xml))
+    rk = res.keys()
+    for r in rk:
+        f.write("\t" + r + "- > " + str(res[r]) + " %\n")
     f.close()
