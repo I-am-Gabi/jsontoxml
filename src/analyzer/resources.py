@@ -56,6 +56,7 @@ def resource_take(data_xml):
     :param data_xml:
     :return:
     """
+    res = {}
     # Update 'data' to 'actions
     data = minidom.parse(data_xml).getElementsByTagName("data")
     count = 0
@@ -73,15 +74,18 @@ def resource_take(data_xml):
     count = 0
     for d in data:
         if d.childNodes[1].firstChild.data.strip() == "exploit":
-            resourceName = d.childNodes[3].childNodes[1].firstChild.data.strip()  # 3 to parameters; 1 to resource
-            print resourceName
+            resource_name = d.childNodes[3].childNodes[1].firstChild.data.strip()  # 3 to parameters; 1 to resource
             answerExploit = data[count+1]
             if answerExploit.childNodes[1].firstChild.data.strip() == "OK":  # 1 to status
                 value = answerExploit.childNodes[5].childNodes[1].firstChild.data.strip()  # 5 to extras; 1 to amount
-                print value
+                # Update res
+                if resource_name in res:
+                    res[resource_name] = int(res[resource_name]) + int(value)
+                else:
+                    res[resource_name] = int(value)
         count +=1
     # update data to action of type and 'transform'
-    return 1
+    
 
 
 def analyzer_resource(data_xml):
