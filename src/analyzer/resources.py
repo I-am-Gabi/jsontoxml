@@ -85,7 +85,13 @@ def resource_take(data_xml):
                     res[resource_name] = int(value)
         count +=1
     # update data to action of type and 'transform'
-    
+
+"""def percentage_resouces(resources_asked, resources_caught):
+    res = resources_asked
+   keys = res.keys()
+    for r in keys:
+        if r in resources_caught:
+            res[r] = int(resources_caught[r])/float(resources_asked[r])"""
 
 
 def analyzer_resource(data_xml):
