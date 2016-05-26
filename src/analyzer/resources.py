@@ -70,15 +70,19 @@ def resource_take(data_xml):
         count += 1
 
     # update data to action of type 'exploit'
-    """count = 0
+    count = 0
     for d in data:
         if d.childNodes[1].firstChild.data.strip() == "exploit":
-            print d.childNodes[3].childNodes[1].firstChild.data.strip()   #3 to parameters; 1 to resource ; firstChild = take name of resouce
-            if data[count+1].childNodes[1].fistChild.data.strip() == "status": # action ok
-                print "okkk"
+            resourceName = d.childNodes[3].childNodes[1].firstChild.data.strip()  # 3 to parameters; 1 to resource
+            print resourceName
+            answerExploit = data[count+1]
+            if answerExploit.childNodes[1].firstChild.data.strip() == "OK":  # 1 to status
+                value = answerExploit.childNodes[5].childNodes[1].firstChild.data.strip()  # 5 to extras; 1 to amount
+                print value
         count +=1
-    # update data to action of type and 'transform'"""
+    # update data to action of type and 'transform'
     return 1
+
 
 def analyzer_resource(data_xml):
     f = open(output, 'a+')
