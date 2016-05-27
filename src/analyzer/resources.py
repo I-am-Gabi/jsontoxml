@@ -75,15 +75,39 @@ def resource_take(data_xml):
     for d in data:
         if d.childNodes[1].firstChild.data.strip() == "exploit":
             resource_name = d.childNodes[3].childNodes[1].firstChild.data.strip()  # 3 to parameters; 1 to resource
-            answerExploit = data[count+1]
-            if answerExploit.childNodes[1].firstChild.data.strip() == "OK":  # 1 to status
-                value = answerExploit.childNodes[5].childNodes[1].firstChild.data.strip()  # 5 to extras; 1 to amount
+            answer_exploit = data[count+1]
+            if answer_exploit.childNodes[1].firstChild.data.strip() == "OK":  # 1 to status
+                value = answer_exploit.childNodes[5].childNodes[1].firstChild.data.strip()  # 5 to extras; 1 to amount
+                # Update res
+                if resource_name in res:
+                    res[resource_name] = int(res[resource_name]) + int(value)
+                else:
+                    res[resource_name] = int(value)
+
+        # When the transform is used all the resources they try to used will be deleted.
+        if d.childNodes[1].firstChild.data.strip() == "transform":
+            res_used = d.childNodes[3].childNodes[1]  # maybe change to list
+            resource_name = res_used.localName.strip()
+            value = int(res_used.childNodes[0].data.strip())
+            # Update res
+            try:
+                if resource_name in res:
+                    res[resource_name] = int(res[resource_name]) - int(value)
+            except:
+                print "Wrong json/xml file. Not possible transform something you don't have\n"
+            # Answer of the action transform
+            answer_trans = data[count+1]
+            if answer_trans.childNodes[1].firstChild.data.strip() == "OK":
+                extra_trans = answer_trans.childNodes[5]
+                resource_name = extra_trans.childNodes[1].firstChild.data.strip()
+                value = int(extra_trans.childNodes[3].firstChild.data.strip())
                 # Update res
                 if resource_name in res:
                     res[resource_name] = int(res[resource_name]) + int(value)
                 else:
                     res[resource_name] = int(value)
         count +=1
+
     # update data to action of type and 'transform'
 
     return res

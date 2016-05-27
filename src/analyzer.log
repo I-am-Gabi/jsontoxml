@@ -85,15 +85,16 @@ Number of Scans and Biomes found:
 	 SHRUBLAND -> 21
 	 OCEAN -> 41
 
-Percentage biomes:
+Percentage biomes: 
 	 BEACH -> 3.51 %
 	 SHRUBLAND -> 36.84 %
 	 OCEAN -> 71.93 %
+############# RESOURCES #############
 
 Number of required resources in the contract : 5
 Percentage of each resources: (available/caught) 
-	LEATHER- > 0 %
+	LEATHER- > 100 %
 	INGOT- > 0 %
-	WOOD- > 100 %
-	FUR- > 27.25 %
-	FLOWER- > 100 %
+	WOOD- > 36.58 %
+	FUR- > 100 %
+	FLOWER- > 0 %
