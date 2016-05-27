@@ -123,7 +123,7 @@ def percentage_resouces(resources_asked, resources_caught):
 
 def analyzer_resource(data_xml):
     f = open(output, 'a+')
-    f.write("############# RESOURCES #############\n\n")
+    f.write("\n############# RESOURCES #############\n")
     f.write("Number of required resources in the contract : {0}\n".format(nb_resources(data_xml)))
     f.write("Percentage of each resources: (caught/available) \n")
     res = percentage_resouces(resources(data_xml), resource_take(data_xml))
