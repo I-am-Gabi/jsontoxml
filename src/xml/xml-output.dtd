@@ -3,25 +3,40 @@
 <!ELEMENT part (#PCDATA)>
 <!ELEMENT time (#PCDATA)>
 
-<!ELEMENT data (contracts*, men*, heading*, budget*, action*, status*, cost*, extras*, parameters*)>
-<!ELEMENT parameters (direction*, creek*, people*, resource*, amount*)>
-<!ELEMENT direction (#PCDATA)>
-<!ELEMENT creek (#PCDATA)>
-<!ELEMENT people (#PCDATA)>
-<!ELEMENT contracts ((amount, resource)*)>
+<!ELEMENT data (contracts|men|heading|budget|action|parameters|status|cost|extras)*>
+<!ELEMENT contracts (amount|resource)*>
 <!ELEMENT amount (#PCDATA)>
 <!ELEMENT resource (#PCDATA)>
 <!ELEMENT men (#PCDATA)>
 <!ELEMENT heading (#PCDATA)>
 <!ELEMENT budget (#PCDATA)>
 <!ELEMENT action (#PCDATA)>
+<!ELEMENT parameters (direction|creek|people|range|resource|FISH|FLOWER|FRUITS|FUR|ORE|QUARTZ|SUGAR_CANE|WOOD)*>
+<!ELEMENT direction (#PCDATA)>
 <!ELEMENT status (#PCDATA)>
+<!ELEMENT creek (#PCDATA)>
+<!ELEMENT people (#PCDATA)>
 <!ELEMENT cost (#PCDATA)>
-
-<!ELEMENT extras (found*, range*, biomes*, creeks*, altitude*, resources*, amount*)>
+<!ELEMENT extras (found|range|biomes|creeks|pois|resources|report|asked_range|amount|kind|production)*>
 <!ELEMENT altitude (#PCDATA)>
-<!ELEMENT resources (#PCDATA)>
+<!ELEMENT resources (cond|amount|resource)*>
+<!ELEMENT cond (#PCDATA)>
+<!ELEMENT report (#PCDATA)>
+<!ELEMENT asked_range (#PCDATA)>
+<!ELEMENT production (#PCDATA)>
 <!ELEMENT found (#PCDATA)>
 <!ELEMENT range (#PCDATA)>
 <!ELEMENT biomes (#PCDATA)>
 <!ELEMENT creeks (#PCDATA)>
+<!ELEMENT pois (kind|id)*>
+<!ELEMENT kind (#PCDATA)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT FUR (#PCDATA)>
+<!ELEMENT FISH (#PCDATA)>
+<!ELEMENT FLOWER (#PCDATA)>
+<!ELEMENT FRUITS (#PCDATA)>
+<!ELEMENT ORE (#PCDATA)>
+<!ELEMENT QUARTZ (#PCDATA)>
+<!ELEMENT SUGAR_CANE (#PCDATA)>
+<!ELEMENT WOOD (#PCDATA)>
+

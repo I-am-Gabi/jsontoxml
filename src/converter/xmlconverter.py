@@ -4,7 +4,7 @@ from lxml import etree
 
 
 xml_path = 'xml/xml-output.xml'
-json_path = 'json/json-raquel.json'
+json_path = 'json/json-input-big.json'
 
 
 def json_to_xml(json_obj, line_padding=""):

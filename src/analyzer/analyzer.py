@@ -1,6 +1,5 @@
 from xml.dom import minidom
 
-
 from src.analyzer import biomes, actions, costs
 from src.analyzer.resources import analyzer_resource
 
@@ -15,6 +14,7 @@ header = """
 \n\n
 """
 
+
 def run():
     f = open("analyzer.log", 'a+')
     f.write(header)
@@ -25,4 +25,3 @@ def run():
     costs.run(doc.getElementsByTagName("data"))
     biomes.run(doc.getElementsByTagName("data"))
     analyzer_resource(xml_path)
-
