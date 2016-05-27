@@ -1,6 +1,7 @@
 from xml.dom import minidom
 from itertools import izip  # to transform list to a dict
 
+output = "analyzer.log"
 
 def delete_tab(list):
     count = 0
@@ -34,8 +35,11 @@ def resources(data_xml):
 def print_resources(data_xml):
     res = resources(data_xml)
 
+    f = open(output, 'a+')
     for r in res:
-        print (r + " : " + res[r])
+        #  print (r + " : " + res[r])
+        f.write(r + " : " + res[r] + "\n")
+    f.close()
 
 
 def nb_resources(data_xml):
@@ -52,6 +56,7 @@ def resource_take(data_xml):
     :param data_xml:
     :return:
     """
+    res = {}
     # Update 'data' to 'actions
     data = minidom.parse(data_xml).getElementsByTagName("data")
     count = 0
@@ -66,22 +71,46 @@ def resource_take(data_xml):
         count += 1
 
     # update data to action of type 'exploit'
-    """count = 0
+    count = 0
     for d in data:
         if d.childNodes[1].firstChild.data.strip() == "exploit":
-            print d.childNodes[3].childNodes[1].firstChild.data.strip()   #3 to parameters; 1 to resource ; firstChild = take name of resouce
-            if data[count+1].childNodes[1].fistChild.data.strip() == "status": # action ok
-                print "okkk"
+            resource_name = d.childNodes[3].childNodes[1].firstChild.data.strip()  # 3 to parameters; 1 to resource
+            answerExploit = data[count+1]
+            if answerExploit.childNodes[1].firstChild.data.strip() == "OK":  # 1 to status
+                value = answerExploit.childNodes[5].childNodes[1].firstChild.data.strip()  # 5 to extras; 1 to amount
+                # Update res
+                if resource_name in res:
+                    res[resource_name] = int(res[resource_name]) + int(value)
+                else:
+                    res[resource_name] = int(value)
         count +=1
-    # update data to action of type and 'transform'"""
+    # update data to action of type and 'transform'
+
+    return res
+
+
+def percentage_resouces(resources_asked, resources_caught):
+    res = resources_asked
+    keys = res.keys()
+    for r in keys:
+        if r in resources_caught:
+            res[r] = int(resources_caught[r])/float(resources_asked[r])
+            if res[r] >= 1:
+                res[r] = 100
+            else:
+                res[r] = float(res[r])*100
+        else :
+            res[r] = 0
+    return res
+
 
 def analyzer_resource(data_xml):
-    f = open("analyzer.log", 'a+')
-    f.write("\n############# RESOURCES #############\n\n")
-
-    f.write("Number of required resources in the contract : {0}".format(nb_resources(data_xml)))
-    print_resources(data_xml)
-    print resource_take(data_xml)
+    f = open(output, 'a+')
+    f.write("############# RESOURCES #############\n\n")
+    f.write("Number of required resources in the contract : {0}\n".format(nb_resources(data_xml)))
+    f.write("Percentage of each resources: (available/caught) \n")
+    res =  percentage_resouces(resources(data_xml), resource_take(data_xml))
+    rk = res.keys()
+    for r in rk:
+        f.write("\t" + r + "- > " + str(res[r]) + " %\n")
     f.close()
-
-
