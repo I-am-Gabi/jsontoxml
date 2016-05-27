@@ -26,6 +26,23 @@
   "time": 1448181488658,
   "meth": "initialize"
 },{
+  "data": {
+    "action": "exploit",
+    "parameters": {"resource": "FUR"}
+  },
+  "part": "Explorer",
+  "time": 1459101395858,
+  "meth": "takeDecision"
+},{
+  "data": {
+    "cost": 11,
+    "extras": {"amount": 2},
+    "status": "OK"
+  },
+  "part": "Engine",
+  "time": 1459101395858,
+  "meth": "takeDecision"
+},{
   "data": {"action": "stop"},
   "part": "Explorer",
   "time": 1448181488659,
