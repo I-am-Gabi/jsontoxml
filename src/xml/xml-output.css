@@ -29,3 +29,32 @@ action, status, cost, extras, contracts, men, heading, budget {
     font-size: 12pt;
     padding-left: 50px;
 }
+
+action:before{
+    content: "Action: " attr(action);
+}
+
+status:before{
+    content: "Status: " attr(status);
+    color: green;
+}
+
+cost:before{
+    content: "Cost: " attr(cost);
+}
+
+contracts:before{
+    content: "Contracts: " attr(contracts);
+}
+
+men:before{
+    content: "Men: " attr(men);
+}
+
+heading:before{
+    content: "heading: " attr(heading);
+}
+
+budget:before{
+    content: "budget: " attr(budget);
+}
